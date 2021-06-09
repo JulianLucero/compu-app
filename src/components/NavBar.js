@@ -12,6 +12,7 @@ class NavBar extends Component{
             <Nav.Link href="#contacto">Contacto</Nav.Link>
             <CartWidget/>
         </Navbar>
+        
     )
 };
 }
