@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 
-function ItemCount() {
+{/*function ItemCount() {
     const [count, setCount] = useState(0);
     return (
       <div>
@@ -12,7 +12,7 @@ function ItemCount() {
       </div>
     );
   }
-{/*}
+{*/}
 const ItemCount = () => {
     function upCount(){
         setClicks (clicks+ 1);
@@ -32,5 +32,5 @@ const ItemCount = () => {
         </div>
     )
 }
-*/}
+
 export default ItemCount;

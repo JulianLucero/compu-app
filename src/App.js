@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <ItemListContainer greeting = "Hola aca va estar mi catalogo de Compu Shopping"/>
+      <ItemCount/>
     </div>
   );
 }
