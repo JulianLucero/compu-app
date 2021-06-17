@@ -6,10 +6,13 @@ import { Button } from "react-bootstrap";
 
 function ItemCount() {
     const [count, setCount] = React.useState(0);
+    const max = 3;
 
     function upCount(click){
         console.log(click);
-        return setCount( count +1);
+        count < max
+        ?setCount( count +1)
+        :console.log('Has alcanzado el max');
     }
     function downCount(click){
         console.log(click);

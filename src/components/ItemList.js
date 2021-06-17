@@ -8,7 +8,7 @@ function ItemList() {
   const Database = [
     {
         precio: 35000,
-        stock: 36,
+        stock: 3,
         id: 1,
         name: "ROG - Republic of Gamers ",
         description: "Asus",
@@ -16,7 +16,7 @@ function ItemList() {
       },
       {
         precio: 95300,
-        stock: 24,
+        stock: 3,
         id: 2,
         name: "TUF GAMING B550M (WI-FI) ZAKU II EDITION",
         description: "Gaming",
@@ -24,7 +24,7 @@ function ItemList() {
       },
       {
         precio: 150000,
-        stock: 8,
+        stock: 3,
         id: 3,
         name: "Z590 WIFI GUNDAM EDITION",
         description: "Gaming",
@@ -32,7 +32,7 @@ function ItemList() {
       },
       {
         precio: 5000,
-        stock: 9,
+        stock: 3,
         id: 4,
         name: "Mouse pad Asus TUF Gaming P3",
         description: "Gaming",
@@ -40,7 +40,7 @@ function ItemList() {
       },
       {
         precio: 180000,
-        stock: 62,
+        stock: 3,
         id: 5,
         name: "ROG STRIX LC",
         description: "Gaming",
@@ -48,7 +48,7 @@ function ItemList() {
       },
       {
         precio: 30000,
-        stock: 26,
+        stock: 3,
         id: 6,
         name: "ROG-STRIX-1000G",
         description: "Gaming",
