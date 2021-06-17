@@ -72,7 +72,7 @@ function ItemList() {
     //si llegamos a esta intancia, significa que tuvimos un error,por eso "rechazamos" (reject) la promesa.
     reject("Error obteniendo los datos :(");
     }, 
-    2000);
+    50);
   });  
 
   //una vez resuelta la promesa... 
