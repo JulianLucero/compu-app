@@ -4,9 +4,9 @@ import { Button } from "react-bootstrap";
 
 
 
-function ItemCount() {
-    const [count, setCount] = React.useState(0);
-    const max = 3;
+function ItemCount(props) {
+    const [count, setCount] = React.useState(props.initial);
+    const max = props.stock;
 
     function upCount(click){
         console.log(click);
