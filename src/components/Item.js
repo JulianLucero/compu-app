@@ -10,6 +10,7 @@ export default function Item(props) {
       <img src={props.thumbnailUrl}/> 
       <p className="description">{props.description}</p>
       <p><small>Nos quedan {props.stock} unidades</small></p>
+      
       <ItemCount initial={1} stock= {props.stock}/>
    </div>
   )

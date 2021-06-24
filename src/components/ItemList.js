@@ -72,7 +72,7 @@ function ItemList() {
     //si llegamos a esta intancia, significa que tuvimos un error,por eso "rechazamos" (reject) la promesa.
     reject("Error obteniendo los datos :(");
     }, 
-    50);
+    2000);
   });  
 
   //una vez resuelta la promesa... 
@@ -93,9 +93,8 @@ function ItemList() {
 
   return (
    <div>
-      <button className="btn btn-success" onClick={getCartItems}>      
-        Producto
-      </button>
+      {getCartItems()}     
+              
         {/* Vamos a "loopear" los productos, mediante el metodo MAP
         Al iniciar el componente, "productos" está vacío! por suerte React detecta cuando cambia el estado de un componente, y lo renderiza nuevamente aplicando los cambios que correspondan */}
         <div class="container">
