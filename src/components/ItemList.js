@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Item from './Item.js';
+import { CardDeck, Spinner } from 'react-bootstrap';
 
 
 
@@ -92,7 +93,7 @@ function ItemList() {
 }
 
   return (
-   <div>
+   <CardDeck className="d-flex justify-content-around">
       {getCartItems()}     
               
         {/* Vamos a "loopear" los productos, mediante el metodo MAP
@@ -100,7 +101,7 @@ function ItemList() {
         <div class="container">
         {productos.map( (prod)=> (
             //en cada iteración del array, renedrizamos un componente, pasandole además las props que necesitemos
-            <>
+            <CardDeck >
             <Item
             name={prod.name}
             description={prod.description}
@@ -110,7 +111,7 @@ function ItemList() {
             >
             </Item>
             <hr/>
-            </>
+            </CardDeck>
             
         ))}
         </div>
@@ -118,7 +119,7 @@ function ItemList() {
         
         </div>
        
-    </div>
+    </CardDeck>
   )
 }
 
