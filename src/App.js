@@ -5,7 +5,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer";
 import About from "./pages/About";
-import Users from "./pages/Users";
+import Products from "./pages/Products";
+
 
 
 function App() {
@@ -16,9 +17,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={ItemListContainer} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/users" component={Users} />
-            <ItemListContainer title=" Producto" />
-            <ItemDetailContainer title="Item" />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/products/:idt" component={ItemDetailContainer} />
           </Switch>
       </div>
     </Router>

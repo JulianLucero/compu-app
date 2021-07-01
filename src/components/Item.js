@@ -22,7 +22,7 @@ export default function Item(props) {
       variant="secondary"
             as={Link}
             to={{
-              pathname: `/product/${props.productId}`,
+              pathname: `/product/${props.id}`,
               state: {
                 text: props.text,
                 title: props.title,

@@ -98,6 +98,7 @@ function ItemDetailContainer() {
             precio={productos.precio}
             thumbnailUrl={productos.thumbnailUrl}
             stock={productos.stock}
+            id= {productos.id}
             >
             </ItemDetail>
      )      :(<h2>Cargando</h2>)}

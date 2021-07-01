@@ -108,6 +108,7 @@ function ItemList() {
             precio={prod.precio}
             thumbnailUrl={prod.thumbnailUrl}
             stock={prod.stock}
+            id = {prod.id}
             >
             </Item>
             <hr/>
