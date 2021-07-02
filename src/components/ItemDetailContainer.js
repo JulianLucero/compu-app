@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from "./ItemDetail";
+import { useParams } from 'react-router-dom';
 
 function ItemDetailContainer() {
   //Array cond datos que pueden venir de una base de datos, Api, etc.
@@ -54,6 +55,8 @@ function ItemDetailContainer() {
       }
   ];
 
+  let {id} = useParams();
+
   //inicializamos el estado con un array vacío
   const [productos, setProductos] = useState(null)
 
@@ -65,8 +68,8 @@ function ItemDetailContainer() {
     //const error = Math.random() > 0.85;
     const error = false;
     if(!error){      
-      resolve(Database[1]);  
-      console.log("Promesa",Database[1]);
+      resolve(Database[id-1]);  
+      console.log("Promesa",Database[id-1]);
     }
     //si llegamos a esta intancia, significa que tuvimos un error,por eso "rechazamos" (reject) la promesa.
     reject("Error obteniendo los datos :(");

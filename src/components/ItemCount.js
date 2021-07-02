@@ -8,6 +8,11 @@ function ItemCount(props) {
     const [count, setCount] = React.useState(props.initial);
     const max = props.stock;
 
+    function agregarCarrito(){
+      console.log('Click en boton agregar');
+      props.onAdd(count);
+    }
+
     function upCount(click){
         console.log(click);
         count < max
@@ -30,6 +35,9 @@ function ItemCount(props) {
         <Button variant="danger" onClick={downCount}>
           -
         </Button>
+        <Button onClick={agregarCarrito} variant="primary" size="md" block>
+    Agregar al carrito
+  </Button>
       </div>
     );
   }

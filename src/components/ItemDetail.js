@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import useCartContext from '../context/CartContext';
 import ItemCount from './ItemCount';
 
 
 export default function ItemDetail(props) {
+  const [cantidadComprada, setCantidadComprada] = useState(0);
+
+  function onAdd (value){
+    console.log('Valor llamado: ' , value);
+  }
+
   console.log(props)
   return (
    <div id={props.id}>
@@ -14,7 +20,7 @@ export default function ItemDetail(props) {
       <p className="description">{props.description}</p>
       <p><small>Nos quedan {props.stock} unidades</small></p>
       
-      <ItemCount initial={1} stock= {props.stock}/>
+      <ItemCount onAdd ={onAdd} initial={1} stock= {props.stock}/>
    </div>
   )
 }
