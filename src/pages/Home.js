@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
+import ItemListContainer from "../components/ItemListContainer";
 
-function home() {
-  return (
-    <div>
-      <p>Body</p>
-    </div>
+function Home(props) {
+  return (    
+      <ItemListContainer title={props.title}  />
   );
 }
 
-export default home;
+export default Home;

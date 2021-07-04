@@ -17,7 +17,7 @@ export default function Item(props) {
       <h4>${props.precio}</h4>
       <Card.Text>{props.description}</Card.Text>
       <p><small>Nos quedan {props.stock} unidades</small></p>      
-      <ItemCount initial={1} stock= {props.stock}/>
+      
       <Button
       variant="secondary"
             as={Link}

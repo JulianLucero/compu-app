@@ -11,7 +11,7 @@ function ItemDetailContainer() {
         id: 1,
         name: "ROG - Republic of Gamers ",
         description: "Asus",
-        thumbnailUrl: "https://www.asus.com/media/Odin/websites/global/productosuctLine/20200813114257/P_setting_xxx_0_90_end_185.png"
+        thumbnailUrl: "https://www.asus.com/media/Odin/websites/global/ProductLine/20200813114257/P_setting_xxx_0_90_end_185.png"
       },
       {
         precio: 95300,

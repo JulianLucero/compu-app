@@ -8,6 +8,7 @@ export default function ItemDetail(props) {
 
   function onAdd (value){
     console.log('Valor llamado: ' , value);
+    setCantidadComprada(value)
   }
 
   console.log(props)
