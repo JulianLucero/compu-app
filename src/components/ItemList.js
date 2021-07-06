@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import Item from './Item.js';
+import Item from './Item';
 import { CardDeck, Spinner } from 'react-bootstrap';
+import {useParams} from 'react-router-dom';
 
 
 
-function ItemList() {
-  //Array cond datos que pueden venir de una base de datos, Api, etc.
   const Database = [
     {
         precio: 35000,
+        category: "Monitores",
         stock: 23,
         id: 1,
         name: "ROG - Republic of Gamers ",
@@ -17,6 +17,7 @@ function ItemList() {
       },
       {
         precio: 95300,
+        category: "Placa base",
         stock: 27,
         id: 2,
         name: "TUF GAMING B550M (WI-FI) ZAKU II EDITION",
@@ -25,6 +26,7 @@ function ItemList() {
       },
       {
         precio: 150000,
+        category: "Placa base",
         stock: 35,
         id: 3,
         name: "Z590 WIFI GUNDAM EDITION",
@@ -33,6 +35,7 @@ function ItemList() {
       },
       {
         precio: 5000,
+        category: "Mouse Pad",
         stock: 123,
         id: 4,
         name: "Mouse pad Asus TUF Gaming P3",
@@ -41,6 +44,7 @@ function ItemList() {
       },
       {
         precio: 180000,
+        category: "Placa de video",
         stock: 17,
         id: 5,
         name: "ROG STRIX LC",
@@ -49,6 +53,7 @@ function ItemList() {
       },
       {
         precio: 30000,
+        category: "Fuente",
         stock: 12,
         id: 6,
         name: "ROG-STRIX-1000G",
@@ -57,52 +62,59 @@ function ItemList() {
       }
   ];
 
-  //inicializamos el estado con un array vacío
-  const [productos, setProductos] = useState([])
-
-
-  function getCartItems() {
-  let miPromesa = new Promise((resolve, reject) => {  
-  setTimeout(function(){
-    //"mock" de errores, lo dejamos afuera por ahora
-    //const error = Math.random() > 0.85;
+// Creamos una promesa que nos devuelva los datos de la "base de datos"
+// Simulamos la demora de solicitar datos a la red, demorando 500ms la promesa usando setTimeout()
+function crearPromesa(categ) {
+   
+  return new Promise((resolve, reject) => {  
+  setTimeout(function(){        
     const error = false;
-    if(!error){      
-      resolve(Database);  
+    if(!error){                      
+      !categ ? 
+        resolve(Database)
+        : resolve(Database.filter( (item) =>{
+            return(item.category === categ)
+          }
+        ))  
     }
-    //si llegamos a esta intancia, significa que tuvimos un error,por eso "rechazamos" (reject) la promesa.
     reject("Error obteniendo los datos :(");
-    }, 
-    500);
-  });  
-
-  //una vez resuelta la promesa... 
-  miPromesa.then( function(valor){
-    //actualizamos el state
-    setProductos(Database);
-  }).catch(
-    function(error){
-      console.log(error);
-  }).finally(
-      function(){
-        // se ejecuta siempre que termina la Promesa, 
-        //tanto si es "resolve" o "rejected"
-        //alert('Promesa terminada')
-    }
-  )
+    }, 500);
+  });     
 }
+
+
+// nuestro componente
+function ItemList(){
+  const {category} = useParams();
+
+  //Inicializamos el estado con un array vacío
+  const [productos,setProductos] = useState([]);
+
+  // creamos la Promesa
+  let requestDatos = crearPromesa(category);
+
+  // una vez que la promesa se cumple se ejecuta .then(), y guardamos los datos recibidos en el estado
+  requestDatos.then( function(items_promise){
+      setProductos(items_promise);        
+    })
+    // si hay errores, los "atrapamos" en nuestro .catch()
+    .catch(
+      function(error){
+        console.log(error);          
+    })
+    
 
   return (
    <CardDeck className="d-flex justify-content-around">
-      {getCartItems()}     
-              
-        {/* Vamos a "loopear" los productos, mediante el metodo MAP
+       {/* Vamos a "loopear" los productos, mediante el metodo MAP
         Al iniciar el componente, "productos" está vacío! por suerte React detecta cuando cambia el estado de un componente, y lo renderiza nuevamente aplicando los cambios que correspondan */}
         <div class="container">
-        {productos.map( (prod)=> (
+        {productos.length === 0 && <h3>CARGANDO . . .</h3>}  
+        {productos.map( (prod,index)=> (
             //en cada iteración del array, renedrizamos un componente, pasandole además las props que necesitemos
             <CardDeck >
             <Item
+            key={index}
             name={prod.name}
             description={prod.description}
             precio={prod.precio}

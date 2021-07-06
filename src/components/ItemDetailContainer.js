@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ItemDetail from "./ItemDetail";
 import { useParams } from 'react-router-dom';
 
-function ItemDetailContainer() {
-  //Array cond datos que pueden venir de una base de datos, Api, etc.
+
   const Database = [
     {
         precio: 35000,
@@ -55,46 +54,43 @@ function ItemDetailContainer() {
       }
   ];
 
-  let {id} = useParams();
+  function CrearPromesa() {
+    const {id} = useParams();
 
-  //inicializamos el estado con un array vacío
-  const [productos, setProductos] = useState(null)
+    return new Promise((resolve, reject) => {  
+    setTimeout(function(){        
+      const error = id > Database.length;
+      if(!error){      
+        resolve(Database[id-1]);  
+      }
+      reject("Error obteniendo los datos :(");
+      }, 500);
+    });     
+  }
 
-  useEffect(() => {
+function ItemDetailContainer(){  
+    const [productos,setProductos] = useState(null);    
+
+    let requestDatos = CrearPromesa();
+    requestDatos.then( function(productos_promise){
+      setProductos(productos_promise);        
+      })
+      .catch(
+        function(error){
+          console.log(error);          
+      })
+      .finally(
+          function(){
+            console.info('Promesa terminada');
+        }
+    );
   
-  let miPromesa = new Promise((resolve, reject) => {  
-  setTimeout(function(){
-    //"mock" de errores, lo dejamos afuera por ahora
-    //const error = Math.random() > 0.85;
-    const error = false;
-    if(!error){      
-      resolve(Database[id-1]);  
-      console.log("Promesa",Database[id-1]);
-    }
-    //si llegamos a esta intancia, significa que tuvimos un error,por eso "rechazamos" (reject) la promesa.
-    reject("Error obteniendo los datos :(");
-    }, 
-    50)});
-    
-
-  //una vez resuelta la promesa... 
-  miPromesa.then( function(valor){
-    //actualizamos el state
-    setProductos(valor);
-  }).catch(
-    function(error){
-      console.log(error);
-  })
-  
-}, []);
-    
-  
-
-
-  return (
-   <div>
-     {console.log("estado",productos)}
-     {productos !== null? (
+    return (
+        <section className="text-gray-600 body-font">
+            <div className="container px-5 py-6 mx-auto">        
+                <div className="flex flex-wrap sm:-m-4 -mx-8 -mb-10">
+                {/* Ya está cargado el productos en nuestro estado? */}    
+                {productos !== null? (
             <ItemDetail
             name={productos.name}
             description={productos.description}
@@ -105,9 +101,12 @@ function ItemDetailContainer() {
             >
             </ItemDetail>
      )      :(<h2>Cargando</h2>)}
-     
-       
-    </div>
-  )
+                </div>
+            </div>
+      </section>
+    )  
 }
+
 export default ItemDetailContainer;
+
+  

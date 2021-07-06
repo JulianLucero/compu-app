@@ -59,10 +59,10 @@ function ItemCount(props) {
                           <button className="w-1/4 text-green-400"  onClick={upCount}>
                               <FontAwesomeIcon icon={faPlusSquare} />                            
                           </button>
-                          {/*<div className="h-6 mt-1 w-full flex flex-wrap text-center">
+                          <div className="h-6 mt-1 w-full flex flex-wrap text-center">
                               <span className={`w-full block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-medium tracking-widest ${plusBtn? "hidden" : "visible"}`}>Alcanzaste el máximo disponible</span>
                               <span className={`w-full block py-1 px-2 rounded bg-red-50 text-red-500 text-xs font-medium tracking-widest ${minusBtn? "hidden" : "visible"}`}>Alcanzaste el mínimo</span>
-    </div>*/}
+    </div>
                       </div>
                       <div className="text-center mt-2 leading-none flex-wrap justify-centerw-full py-2">                      
                           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
