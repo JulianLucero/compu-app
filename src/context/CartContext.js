@@ -7,8 +7,8 @@ const useCartContext = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
-  const addItem = (id, quantity) => {
-    setProducts([...products, { ...id, quantity}]);
+  const addItem = (item, quantity) => {
+    setProducts([...products, { ...item, quantity}]);
   };
 
   const clearCart = () =>{
@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
 
   const qtyInCart = (id) =>{
         let prod = products.find( (item) =>{
-            return item["id"] == id
+            return item["id"] === id
         });
         return prod.quantity;
   }

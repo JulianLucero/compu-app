@@ -32,11 +32,11 @@ export default function Item(props) {
             Más Info
 
       </Button>
-      {ItemCount > 0 ? (
+      {/*{ItemCount > 0 ? (
             <Button variant="primary">Comprar</Button>
           ) : (
             <Button variant="primary disabled">Comprar</Button>
-          )}
+          )} */}
       </Card.Body>
    </div>
   
