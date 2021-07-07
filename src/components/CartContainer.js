@@ -66,9 +66,9 @@ const CartContainer = () => {
                                 <CartItem          
                                     key={index}                 
                                     id={item.id}
-                                    title={item.title}
-                                    imgUrl={item.imgUrl}
-                                    price={item.price}
+                                    name={item.name}
+                                    thumbnailUrl={item.thumbnailUrl}
+                                    precio={item.precio}
                                     quantity={item.quantity}
                                 />
                             )
