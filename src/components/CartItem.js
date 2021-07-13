@@ -9,7 +9,7 @@ const CartItem = (props) => {
         <img
             class="h-8 w-8 object-cover "
             src={props.thumbnailUrl}
-            alt={props.title}
+            alt={props.name}
             
         />
         </td>
