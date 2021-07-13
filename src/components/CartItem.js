@@ -14,7 +14,7 @@ const CartItem = (props) => {
         />
         </td>
         <td>
-        <span class="text-center ml-2 font-semibold">{props.title}</span>
+        <span class="text-center ml-2 font-semibold">{props.name}</span>
         </td>
         <td class="px-16 py-2">
         <button class="bg-red-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-red-600 hover:text-red-600 ">
