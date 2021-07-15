@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import { Link, useHistory } from "react-router-dom";
 import ItemCount from './ItemCount';
 import useCartContext from "../context/CartContext";
-import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 
 export default function ItemDetail(props) {
@@ -12,13 +11,13 @@ export default function ItemDetail(props) {
   const navig = useHistory();
 
   function onAdd (value){
-    console.log('Valor llamado: ' , value);
+    
     isInCart(props.id)?
     alert(`Ya agregaste item al carrito.`)
     :addItem(props,value);
   }
 
-  console.log(props)
+  
   return (
     <section>
    <div id={props.id}>
@@ -54,20 +53,7 @@ export default function ItemDetail(props) {
           Volver
         </button>    
    </div>
-  <div className="absolute left-0 top-1/2">
-  <Link to={`/products/${props.id - 1}`}>
-     <button disabled={props.id === 1} className="w-2/4 text-grey-400">
-      <FontAwesomeIcon icon={faArrowCircleLeft} />
-    </button>
-  </Link>
-</div>
-<Link to={`/products/${props.id + 1}`}>
-  <div className="absolute right-0 top-1/2">
-    <button className="w-2/4 text-grey-400">
-        <FontAwesomeIcon icon={faArrowCircleRight} />
-    </button>
-  </div>
-</Link>
+ 
    
 </section>
   )

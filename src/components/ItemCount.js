@@ -2,7 +2,6 @@ import React , {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
-import { Button } from "react-bootstrap";
 
 
 
@@ -19,12 +18,12 @@ function ItemCount(props) {
 
 
     function addToCart(){
-      console.log('Click en boton agregar');
+     
       props.onAdd(count);
     }
 
     function upCount(click){
-        console.log(click);
+        
         if (count < props.stock) 
             setCount(count + 1);
         if (count === props.stock)
@@ -33,7 +32,7 @@ function ItemCount(props) {
         setMinusBtn(true)        
     };    
     function downCount(click){
-        console.log(click);
+        
         if (count > 0)
             setCount(count - 1);
         if (count === 0)

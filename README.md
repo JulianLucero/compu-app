@@ -1,3 +1,9 @@
+# Proyecto tienda e-Commerce para proyecto final de React Coderhouse
+
+Hola, mi proyecto se llama **Compu - shopping **. y es una tienda e-Commerce para comprar componentes para PC .
+Para el proyecto utilice JavaScript - react-bootstrap y react-fontawesome, con respecto a la base de datos, use una base de datos local y una base de datos a Firebase.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

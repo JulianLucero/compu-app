@@ -32,7 +32,7 @@ function ItemDetailContainer(){
         }
         }).catch((error) => {
             setLoading(false);
-            console.log("Error getting document:", error);
+           
         }).finally(() => 
             setLoading(false)
         );
@@ -54,12 +54,7 @@ function ItemDetailContainer(){
                       stock={productos.stock}
                       id= {productos.id}
                   /> 
-                      <div>
-                      <button                
-                        className="flex mx-auto mt-2 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-                        ¡Comprar!
-                      </button>
-                    </div>
+                      
                   </div>
               }               
               </div>

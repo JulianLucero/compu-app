@@ -100,7 +100,7 @@ function ItemList(){
     // si hay errores, los "atrapamos" en nuestro .catch()
     .catch(
       function(error){
-        console.log(error);          
+                 
     })
     
 
